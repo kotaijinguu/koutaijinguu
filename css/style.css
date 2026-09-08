@@ -1,0 +1,1009 @@
+/* =========================================================
+   皇太神宮 (北方皇太神宮) ホームページ共通スタイル
+   ========================================================= */
+
+:root {
+  --color-main:   #5b2c6f; /* 深紫 */
+  --color-accent: #c9a84c; /* 金箔 */
+  --color-bg:     #f5f1ea; /* 生成り */
+  --color-text:   #2c2820; /* 深墨 */
+  --color-sub:    #8a7a8a; /* 薄紫 */
+
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans:  'Noto Sans JP', sans-serif;
+
+  --header-height: 76px;
+  --transition: 0.25s ease;
+}
+
+/* ---------- reset ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+main {
+  padding-top: var(--header-height);
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-en {
+  display: block;
+  font-family: var(--font-serif);
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.9rem;
+  letter-spacing: 0.15em;
+  color: var(--color-main);
+  margin-bottom: 48px;
+}
+
+.section-title.tight {
+  letter-spacing: 0.4em;
+}
+
+/* ---------- header ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: var(--color-main);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo img {
+  height: 44px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 36px;
+}
+
+.main-nav a {
+  color: var(--color-accent);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  padding: 8px 2px;
+  position: relative;
+  transition: opacity var(--transition);
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width var(--transition);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  height: 88vh;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(91, 44, 111, 0.55);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-crest {
+  width: 64px;
+  height: auto;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+
+.hero-en {
+  display: block;
+  font-family: var(--font-serif);
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 0.2em;
+  margin-bottom: 14px;
+}
+
+.hero-sub {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  color: #f0e6d2;
+  margin-bottom: 36px;
+}
+
+.hero-page .hero-title {
+  font-size: clamp(2rem, 4.4vw, 2.8rem);
+  letter-spacing: 0.12em;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--color-accent);
+  border-radius: 2px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-main);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- 御祭神セクション ---------- */
+.deity-section {
+  background: #fff;
+  text-align: center;
+}
+
+.deity-section p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--color-text);
+}
+
+.deity-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-main);
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.deity-era {
+  color: var(--color-sub);
+  font-size: 0.95rem;
+  margin-top: 14px;
+}
+
+/* ---------- 四季セクション ---------- */
+.season-section {
+  background: var(--color-bg);
+}
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.season-card {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.season-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.season-card:hover img {
+  transform: scale(1.06);
+}
+
+.season-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 0 14px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+  color: #fff;
+  background: linear-gradient(to top, rgba(44, 40, 32, 0.75), transparent);
+}
+
+/* ---------- ナビカード ---------- */
+.navcard-section {
+  background: #fff;
+}
+
+.navcard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.navcard {
+  display: block;
+  border: 1px solid #e5ddcc;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-bg);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.navcard:hover {
+  box-shadow: 0 10px 24px rgba(91, 44, 111, 0.15);
+  transform: translateY(-4px);
+}
+
+.navcard-img {
+  height: 180px;
+  overflow: hidden;
+}
+
+.navcard-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navcard-body {
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.navcard-en {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.navcard-title {
+  font-size: 1.15rem;
+  color: var(--color-main);
+  letter-spacing: 0.1em;
+}
+
+/* ---------- お知らせ ---------- */
+.news-section {
+  background: var(--color-bg);
+}
+
+.news-list {
+  max-width: 760px;
+  margin: 0 auto;
+  border-top: 1px solid #d9cdb5;
+}
+
+.news-item {
+  display: flex;
+  gap: 28px;
+  padding: 22px 4px;
+  border-bottom: 1px solid #d9cdb5;
+}
+
+.news-date {
+  flex: none;
+  color: var(--color-sub);
+  font-family: var(--font-serif);
+  letter-spacing: 0.05em;
+}
+
+.news-text {
+  color: var(--color-text);
+}
+
+/* ---------- Instagram ---------- */
+.instagram-section {
+  background: var(--color-main);
+  color: #fff;
+  text-align: center;
+}
+
+.instagram-section .section-title {
+  color: #fff;
+}
+
+.instagram-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 20px;
+  fill: var(--color-accent);
+}
+
+.instagram-section p {
+  color: #ece4f0;
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+/* ---------- about.html ---------- */
+.lead-text {
+  background: #fff;
+}
+
+.lead-text p {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.02rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 900px;
+  margin: 44px auto 0;
+  border-top: 1px solid #e5ddcc;
+  border-left: 1px solid #e5ddcc;
+}
+
+.info-item {
+  border-right: 1px solid #e5ddcc;
+  border-bottom: 1px solid #e5ddcc;
+}
+
+.info-item dt {
+  background: var(--color-bg);
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5ddcc;
+  font-size: 0.9rem;
+}
+
+.info-item dd {
+  padding: 16px;
+  font-size: 0.95rem;
+}
+
+.content-section:nth-child(odd) {
+  background: #fff;
+}
+
+.content-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.content-heading {
+  margin-bottom: 24px;
+}
+
+.content-heading .section-en {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.content-heading h3 {
+  font-size: 1.5rem;
+  color: var(--color-main);
+  letter-spacing: 0.08em;
+}
+
+.content-section p {
+  margin-bottom: 18px;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.history-table th,
+.history-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5ddcc;
+  vertical-align: top;
+}
+
+.history-table th {
+  width: 130px;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.highlight-box {
+  background: var(--color-bg);
+  border-left: 4px solid var(--color-accent);
+  padding: 24px 28px;
+  margin-top: 24px;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.shrine-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.shrine-card {
+  background: var(--color-bg);
+  padding: 26px;
+  border-radius: 4px;
+  border: 1px solid #e5ddcc;
+}
+
+.shrine-card h4 {
+  color: var(--color-main);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+
+.shrine-card .deity-list {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--color-sub);
+}
+
+.closing-section {
+  background: var(--color-main);
+  color: #f3ecf6;
+  text-align: center;
+}
+
+.closing-section p {
+  max-width: 620px;
+  margin: 0 auto;
+  font-family: var(--font-serif);
+  letter-spacing: 0.05em;
+  font-size: 1.05rem;
+  line-height: 2.2;
+}
+
+/* ---------- prayers.html ---------- */
+.prayer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.prayer-card {
+  background: #fff;
+  border: 1px solid #e5ddcc;
+  border-radius: 4px;
+  padding: 30px 20px;
+  text-align: center;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  letter-spacing: 0.08em;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.prayer-card:hover {
+  box-shadow: 0 10px 24px rgba(91, 44, 111, 0.15);
+  transform: translateY(-4px);
+}
+
+.info-table-section {
+  background: #fff;
+}
+
+.info-table {
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table th,
+.info-table td {
+  text-align: left;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5ddcc;
+}
+
+.info-table th {
+  width: 200px;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  background: var(--color-bg);
+}
+
+.ceremony-list {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ceremony-list li {
+  padding: 14px 0;
+  border-bottom: 1px dashed #d9cdb5;
+  font-size: 1rem;
+}
+
+.ceremony-list li:first-child {
+  padding-top: 0;
+}
+
+/* ---------- access.html ---------- */
+.access-info-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.access-info-list li {
+  display: flex;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5ddcc;
+}
+
+.access-info-list .label {
+  flex: none;
+  width: 110px;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+}
+
+.map-placeholder {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 400px;
+  background: #e5ddcc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-sub);
+  font-family: var(--font-serif);
+  letter-spacing: 0.1em;
+  overflow: hidden;
+}
+
+.map-placeholder iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.transport-section {
+  background: #fff;
+}
+
+.transport-list {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.transport-list li {
+  padding: 18px 0;
+  border-bottom: 1px solid #e5ddcc;
+}
+
+.transport-list .line {
+  display: block;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- contact.html ---------- */
+.contact-tel {
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  font-size: 1.1rem;
+}
+
+.contact-tel span {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+}
+
+.contact-form {
+  max-width: 640px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-serif);
+  color: var(--color-main);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group .required {
+  color: #b23b3b;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  border: 1px solid #d9cdb5;
+  border-radius: 3px;
+  background: #fff;
+  color: var(--color-text);
+}
+
+.form-group textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-main);
+}
+
+.form-submit {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-submit button {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  padding: 14px 48px;
+  background: var(--color-main);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.form-submit button:hover {
+  background: #472357;
+}
+
+.form-submit button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.form-message {
+  margin-top: 20px;
+  padding: 16px;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.form-message.is-success {
+  background: #eef4ea;
+  color: #3a5a2c;
+}
+
+.form-message.is-error {
+  background: #f6e9e9;
+  color: #7a2c2c;
+}
+
+/* ---------- privacy.html ---------- */
+.policy-list {
+  margin-bottom: 18px;
+}
+
+.policy-list li {
+  position: relative;
+  padding-left: 1.3em;
+  margin-bottom: 8px;
+}
+
+.policy-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  background: var(--color-text);
+  color: #cfc8bb;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: var(--font-serif);
+  color: #fff;
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 14px;
+}
+
+.site-footer p {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.footer-links {
+  margin-top: 14px;
+}
+
+.footer-links a {
+  color: #cfc8bb;
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-copyright {
+  margin-top: 18px;
+  color: #8a8175;
+  font-size: 0.75rem;
+}
+
+/* =========================================================
+   レスポンシブ
+   ========================================================= */
+@media (max-width: 900px) {
+  .season-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navcard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prayer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .shrine-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 32px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 240px;
+    height: calc(100vh - var(--header-height));
+    background: var(--color-main);
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .main-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 24px;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 16px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  section {
+    padding: 56px 0;
+  }
+
+  .season-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prayer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .info-table th {
+    width: 130px;
+  }
+
+  .access-info-list li,
+  .form-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .season-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .prayer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .history-table th {
+    width: 90px;
+  }
+}
