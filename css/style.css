@@ -470,6 +470,66 @@ section {
   margin: 0 auto 28px;
 }
 
+/* ---------- news.html ---------- */
+.hero-news::before {
+  background: rgba(91, 44, 111, 0.6);
+}
+
+.news-list-section {
+  background: #fff;
+}
+
+a.news-item {
+  color: inherit;
+  align-items: center;
+  cursor: pointer;
+  transition: background var(--transition), padding-left var(--transition);
+}
+
+a.news-item:hover {
+  background: var(--color-bg);
+  padding-left: 12px;
+}
+
+a.news-item::after {
+  content: '›';
+  margin-left: auto;
+  color: var(--color-accent);
+  font-size: 1.3rem;
+}
+
+.instagram-section--news {
+  background: #f5f1ea;
+  color: var(--color-text);
+}
+
+.instagram-section--news .section-title {
+  color: var(--color-main);
+}
+
+.instagram-section--news p {
+  color: var(--color-text);
+}
+
+.instagram-section--news .instagram-icon {
+  fill: var(--color-main);
+}
+
+.instagram-feed-placeholder {
+  max-width: 760px;
+  height: 240px;
+  margin: 0 auto 28px;
+  background: #fff;
+  border: 1px dashed #d9cdb5;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-sub);
+  font-family: var(--font-serif);
+  letter-spacing: 0.1em;
+}
+
 /* ---------- about.html ---------- */
 .lead-text {
   background: #fff;
@@ -896,6 +956,27 @@ section {
 
 .footer-links a:hover {
   color: #fff;
+}
+
+.footer-social {
+  margin-top: 16px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-instagram-icon {
+  width: 22px;
+  height: 22px;
+  fill: #cfc8bb;
+  transition: fill var(--transition);
+}
+
+.footer-social a:hover .footer-instagram-icon {
+  fill: #fff;
 }
 
 .footer-copyright {
