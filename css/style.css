@@ -479,25 +479,6 @@ section {
   background: #fff;
 }
 
-a.news-item {
-  color: inherit;
-  align-items: center;
-  cursor: pointer;
-  transition: background var(--transition), padding-left var(--transition);
-}
-
-a.news-item:hover {
-  background: var(--color-bg);
-  padding-left: 12px;
-}
-
-a.news-item::after {
-  content: '›';
-  margin-left: auto;
-  color: var(--color-accent);
-  font-size: 1.3rem;
-}
-
 .instagram-section--news {
   background: #f5f1ea;
   color: var(--color-text);
